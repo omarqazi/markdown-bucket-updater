@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>o fuk lol</title>
+    </head>
+    
+    <body>
+        <h1 id="fuk">fuk</h1>
+        
+        <ol>
+            <% all_files.each do |fuk| %>
+            <% comps = fuk.split(".") %>
+            <% comps.pop %>
+            <% without_extension = comps.join(".").split("-").join(" ") %>
+            <li><a href="/<%= fuk %>"><%= without_extension %></a></li>
+            <% end %>
+        </ol>
+    </body>
+</html>
