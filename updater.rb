@@ -38,6 +38,7 @@ resp.contents.each do |object|
   b = binding
   template_data = article_template.result b
   s3.put_object(bucket: 'ofuklol.com', key: html_filename, body: template_data,acl: "public-read")
+  File.open(File.join("preview",html_filename),'w') { |f| f.write(template_data) }
   all_files << html_filename
   puts "Uploaded #{html_filename}"
 end
@@ -45,3 +46,5 @@ end
 b = binding
 index_data = index_template.result b
 s3.put_object(bucket: 'ofuklol.com', key: 'index.html', body: index_data,acl: "public-read")
+File.open(File.join("preview","index.html"),'w') { |f| f.write(index_data) }
+
